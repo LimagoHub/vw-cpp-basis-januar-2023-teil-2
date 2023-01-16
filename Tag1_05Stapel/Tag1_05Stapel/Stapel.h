@@ -1,6 +1,9 @@
 #pragma once
 class Stapel
 {
+private:
+	int data[10];
+	size_t index;
 public:
 
 	Stapel();
