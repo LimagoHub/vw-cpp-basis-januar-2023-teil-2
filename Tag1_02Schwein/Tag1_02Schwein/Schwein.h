@@ -7,12 +7,20 @@ class Schwein
 private:
 	std::string name;
 	int gewicht;
+	static int counter; // wird zu Klassenvariable
 
 public:
 
 
-	Schwein();
+	static int get_counter() 
+	{
+		
+		return Schwein::counter;
+	}
 
+	Schwein(const std::string &name = "Nobody");
+	virtual ~Schwein();
+	
 	inline std::string get_name() const
 	{
 		return name;

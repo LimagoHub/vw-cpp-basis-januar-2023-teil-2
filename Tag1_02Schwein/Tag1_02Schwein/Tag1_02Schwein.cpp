@@ -10,13 +10,14 @@ int main()
 {
 
 	
-	Schwein piggy;
 
-	piggy.set_name("Miss Piggy");
+	std::cout << Schwein::get_counter() << std::endl;
+
+	Schwein piggy{"Miss Piggy"};
 	
-
+	std::cout << Schwein::get_counter() << std::endl;
+	
 	std::cout << piggy.to_string() << std::endl;
-
 	
 	piggy.fressen();
 	

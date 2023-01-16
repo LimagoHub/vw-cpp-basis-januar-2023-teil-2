@@ -1,0 +1,13 @@
+// Tag1_4InlineDemo.cpp : Diese Datei enthält die Funktion "main". Hier beginnt und endet die Ausführung des Programms.
+//
+
+#include <iostream>
+#include "Header.h"
+
+
+int main()
+{
+	foo();
+    std::cout << "Hello World!\n";
+}
+

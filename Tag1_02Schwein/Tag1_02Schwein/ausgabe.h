@@ -1,4 +1,4 @@
 #pragma once
 
-void ausgabe();
+void ausgabe(); // in der c-Welt Private
 
