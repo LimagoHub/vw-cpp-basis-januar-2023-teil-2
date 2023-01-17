@@ -19,9 +19,10 @@ int main()
 	
 	std::cout << piggy.to_string() << std::endl;
 	
-	piggy.fressen();
+	//piggy.fressen();
+	Schwein babe = ++piggy;
 	
-	std::cout << piggy.to_string() << std::endl;
+	std::cout << babe.to_string() << std::endl;
 
    
 }

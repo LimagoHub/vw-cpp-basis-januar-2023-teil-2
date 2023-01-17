@@ -23,6 +23,7 @@ class Punkt
 public:
 
 	Punkt(double x = 0, double y= 0);
+	
 
 	double get_x() const
 	{
@@ -41,5 +42,7 @@ public:
 	void links();
 	void oben();
 	void unten();
-};
 
+	// plusplus
+	// Scalar *= -> p *= 2.0
+};

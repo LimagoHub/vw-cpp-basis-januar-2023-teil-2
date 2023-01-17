@@ -1,21 +1,18 @@
 #include <iostream>
-
-int x = 10;
-
-int& get_x(int &a)
+using namespace std;
+void foo(int *a)
 {
-	a = 1000;
-	return a;
+	while(*a)
+	{
+		cout << *a++ << endl;
+	}
 }
 
 int main()
 {
-	const int a = 5;
-	int x = 20;
-	
-
-	
-	
+	int feld[]= {10,20,30,0};
+	foo(feld);
+	cout << sizeof(feld) << endl;
 }
 
 

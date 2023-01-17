@@ -7,7 +7,7 @@ class Schwein
 private:
 	std::string name;
 	int gewicht;
-	static int counter; // wird zu Klassenvariable
+	/* shared */static int counter; // wird zu Klassenvariable
 
 public:
 
@@ -17,8 +17,10 @@ public:
 		
 		return Schwein::counter;
 	}
-
+	// Initialisiert die Instanzvariablen (nicht Klassenvariablen)
 	Schwein(const std::string &name = "Nobody");
+
+	// Raeumt auf
 	virtual ~Schwein();
 	
 	inline std::string get_name() const
@@ -40,5 +42,18 @@ public:
 	void fressen();
 
 	std::string to_string();
+
+	Schwein& operator ++()  // preincrement
+	{
+		fressen();
+		return *this;
+	}
+
+	Schwein operator ++(int dummy) // postincrement
+	{
+		Schwein temp = *this;
+		fressen();
+		return temp;
+	}
 
 };
