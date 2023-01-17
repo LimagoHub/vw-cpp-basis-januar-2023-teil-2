@@ -18,7 +18,7 @@ void Schwein::fressen()
 	gewicht++;
 }
 
-std::string Schwein::to_string()
+std::string Schwein::to_string() const
 {
 	return "Schwein: Name=" + get_name() + ", Gewicht=" + std::to_string(get_gewicht()) + "KG";
 }

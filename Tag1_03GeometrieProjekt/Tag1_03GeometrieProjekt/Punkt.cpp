@@ -32,3 +32,8 @@ void Punkt::unten()
 	set_y(get_y() - 1);
 }
 
+
+Punkt operator+(const Punkt& a, const Punkt& b)
+{
+	return Punkt{ a.get_x() + b.get_x() , a.get_y() + b.get_y() };
+}

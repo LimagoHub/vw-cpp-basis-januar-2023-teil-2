@@ -7,17 +7,12 @@
 
 int main()
 {
-	Punkt p;
-	std::cout << p.to_string() << std::endl;
-
+	Punkt p1{2,3};
 	
-	for (int i = 0; i < 11; ++i)
-	{
-		p.rechts();
-		std::cout << p.to_string() << std::endl;
-	}
+	Punkt p2{ 1,1 };
 
-	
-    std::cout << "Hello World!\n";
+	Punkt p3 = p1 + p2;
+
+	std::cout << p3 << std::endl; // Ostream ausgeben_nach(Ostream outstream, Punkt p)
 }
 

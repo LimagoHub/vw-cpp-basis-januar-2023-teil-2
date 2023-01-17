@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <stdexcept>
-
+#include <ostream>
 class Schwein
 {
 private:
@@ -41,7 +41,7 @@ public:
 
 	void fressen();
 
-	std::string to_string();
+	std::string to_string() const;
 
 	Schwein& operator ++()  // preincrement
 	{
@@ -55,5 +55,26 @@ public:
 		fressen();
 		return temp;
 	}
+
+
+	friend std::ostream& operator<<(std::ostream& os, const Schwein& obj)
+	{
+		return os
+			<< "name: " << obj.name
+			<< " gewicht: " << obj.gewicht;
+	}
+
+
+	friend bool operator==(const Schwein& lhs, const Schwein& rhs)
+	{
+		return lhs.name == rhs.name
+			&& lhs.gewicht == rhs.gewicht;
+	}
+
+	friend bool operator!=(const Schwein& lhs, const Schwein& rhs)
+	{
+		return !(lhs == rhs);
+	}
+
 
 };

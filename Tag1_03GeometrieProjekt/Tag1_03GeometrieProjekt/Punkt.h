@@ -1,8 +1,11 @@
 #pragma once
 #include <string>
+#include <ostream>
 
 class Punkt
 {
+	
+	
 	const double MAX = 10.0;
 	double x;
 	double y;
@@ -43,6 +46,46 @@ public:
 	void oben();
 	void unten();
 
-	// plusplus
-	// Scalar *= -> p *= 2.0
+	Punkt & operator ++() // Preincrement
+	{
+		rechts();
+		oben();
+		return *this;
+	}
+
+	Punkt operator ++(int) // Postincrement
+	{
+		Punkt oldValue = *this;
+		rechts();
+		oben();
+		return oldValue;
+	}
+
+	Punkt& operator *=(double scalar)
+	{
+		set_x(get_x() * scalar);
+		set_y(get_y() * scalar);
+		return *this;
+	}
+	friend Punkt operator+(const Punkt& a, const Punkt& b);
+
+	friend std::ostream & operator <<(std::ostream &os, const Punkt &p)
+	{
+		os << p.to_string();
+		return os;
+	}
+
+
+	friend bool operator==(const Punkt& lhs, const Punkt& rhs)
+	{
+		return lhs.x == rhs.x
+			&& lhs.y == rhs.y;
+	}
+
+	friend bool operator!=(const Punkt& lhs, const Punkt& rhs)
+	{
+		return !(lhs == rhs);
+	}
 };
+
+
