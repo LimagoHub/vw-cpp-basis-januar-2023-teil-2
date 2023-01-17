@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <ostream>
+#include <iostream>
 
 class Punkt
 {
@@ -9,7 +10,7 @@ class Punkt
 	const double MAX = 10.0;
 	double x;
 	double y;
-	
+
 	void set_x(double x)
 	{
 		if (x > MAX) x = MAX;
@@ -25,8 +26,17 @@ class Punkt
 
 public:
 
-	Punkt(double x = 0, double y= 0);
-	
+	Punkt(double x = 0, double y=0);
+	// Copy Konstruktor
+	Punkt(const Punkt & other):x(other.x),y(other.y)
+	{
+		std::cout << "Copy Ctor" << std::endl;
+		
+	}
+	virtual ~Punkt()
+	{
+		std::cout << "DTOR Punkt" << std::endl;
+	}
 
 	double get_x() const
 	{
@@ -38,7 +48,7 @@ public:
 		return y;
 	}
 
-	std::string to_string() const;
+	virtual auto to_string() const ->std::string  ;
 
 	
 	void rechts(double offset = 1.0);
@@ -71,7 +81,7 @@ public:
 
 	friend std::ostream & operator <<(std::ostream &os, const Punkt &p)
 	{
-		os << p.to_string();
+		//os << p.to_string();
 		return os;
 	}
 
@@ -85,6 +95,13 @@ public:
 	friend bool operator!=(const Punkt& lhs, const Punkt& rhs)
 	{
 		return !(lhs == rhs);
+	}
+
+	Punkt & operator=(const Punkt &other)
+	{
+		this->x = other.x;
+		this->y = other.y;
+		return *this;
 	}
 };
 

@@ -1,10 +1,18 @@
 #include "Schwein.h"
 #include <iostream>
+#include <memory>
 Schwein::Schwein(const std::string &name)
 	:name{ name}
 	, gewicht{ 10 }
 {
 	++counter;
+}
+
+Schwein::Schwein(const Schwein& other)
+{
+	name = other.name;
+	gewicht = other.gewicht;
+	counter++;
 }
 
 Schwein::~Schwein()

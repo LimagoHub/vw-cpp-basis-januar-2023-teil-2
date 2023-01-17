@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Kreis.cpp" />
     <ClCompile Include="Punkt.cpp" />
     <ClCompile Include="Tag1_03GeometrieProjekt.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Kreis.h" />
     <ClInclude Include="Punkt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

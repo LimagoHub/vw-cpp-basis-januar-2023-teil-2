@@ -1,8 +1,34 @@
 #include "Stapel.h"
 #include <iostream>
-Stapel::Stapel():index{0}
+#include <memory>
+Stapel::Stapel(size_t size) :data{new int[size]}, size{ size }, index{ 0 }
 {
 	
+}
+
+void Stapel::copy_values(const Stapel& other)
+{
+	index = other.index;
+	size = other.size;
+	data = new int[other.size];
+	memcpy(data, other.data, size * sizeof(int));
+}
+
+Stapel::Stapel(const Stapel& other)
+{
+	copy_values(other);
+}
+
+Stapel::~Stapel()
+{
+	delete[] data;
+}
+
+Stapel& Stapel::operator = (const Stapel& other)
+{
+	delete[] data;
+	copy_values(other);
+	return *this;
 }
 
 void Stapel::push(int value)
@@ -25,5 +51,5 @@ bool Stapel::is_empty()
 
 bool Stapel::is_full()
 {
-	return index == sizeof(data)/sizeof(int);
+	return index == size;
 }

@@ -39,6 +39,10 @@ int main()
 	Schwein piggy{"Miss Piggy"};
 	
 	std::cout << Schwein::get_counter() << std::endl;
+
+	Schwein babe{ piggy };
+	
+	std::cout << Schwein::get_counter() << std::endl;
 	
 	std::cout << piggy << std::endl;
 	

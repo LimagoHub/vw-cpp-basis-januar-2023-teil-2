@@ -6,7 +6,7 @@ Punkt::Punkt(double x, double y)
 	set_y(y);
 }
 
-std::string Punkt::to_string() const
+auto Punkt::to_string() const -> std::string
 {
 	return "X=" + std::to_string(get_x()) + ", Y=" + std::to_string(get_y());
 }

@@ -20,6 +20,9 @@ public:
 	// Initialisiert die Instanzvariablen (nicht Klassenvariablen)
 	Schwein(const std::string &name = "Nobody");
 
+	Schwein(const Schwein& other) ;
+	Schwein& operator = (const Schwein& other) = default;
+	
 	// Raeumt auf
 	virtual ~Schwein();
 	
