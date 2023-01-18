@@ -21,7 +21,7 @@ namespace vw {
 
 			auto append(T value) -> void override
 			{
-				auto neu = std::shared_ptr<Kettenglied<T>>(value);
+				auto neu = std::make_shared<Kettenglied<T>>(value);
 				if(is_empty())
 				{
 					start =neu;
@@ -37,7 +37,7 @@ namespace vw {
 			{
 				return T{};
 			}
-			auto remove() -> bool override
+			auto remove() -> bool override // Bitte noch nicht
 			{
 				return false;
 			}
@@ -75,9 +75,10 @@ namespace vw {
 		{
 			friend class ListeImpl<T>;
 			T data;
-			std::shared_ptr<T> nach;
-			std::weak_ptr<T> vor;
-		
+			std::shared_ptr<Kettenglied<T>> nach;
+			std::weak_ptr<Kettenglied<T>> vor;
+
+		public:
 			Kettenglied(const T& data)
 				: data(data)
 			{
