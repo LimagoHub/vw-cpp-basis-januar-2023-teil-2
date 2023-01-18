@@ -23,10 +23,15 @@ public:
 
 	// CopyConstructor
 	Stapel(const Stapel &other) ;
+
+	Stapel(Stapel&& other);
 	
 	virtual ~Stapel();
 
-	Stapel& operator = (const Stapel& other) ; 
+	Stapel& operator = (const Stapel& other) ;
+	
+	Stapel& operator = (Stapel&& other);
+
 	
 	void push(int value); // Verhalten im Fehlerfall ist Teil der Schnittstelle
 	int pop(); // 0 wenn Stapel
@@ -34,4 +39,5 @@ public:
 	bool is_empty();
 	bool is_full();
 };
+
 

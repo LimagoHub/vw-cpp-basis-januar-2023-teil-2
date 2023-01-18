@@ -19,6 +19,17 @@ Stapel::Stapel(const Stapel& other)
 	copy_values(other);
 }
 
+Stapel::Stapel(Stapel&& other)
+{
+	data = other.data;
+	size = other.size;
+	index = other.index;
+
+	other.data = nullptr;
+	other.size = 0;
+	other.index = 0;
+}
+
 Stapel::~Stapel()
 {
 	delete[] data;
@@ -30,6 +41,20 @@ Stapel& Stapel::operator = (const Stapel& other)
 	copy_values(other);
 	return *this;
 }
+
+Stapel& Stapel::operator=(Stapel&& other)
+{
+	delete[] data;
+	data = other.data;
+	size = other.size;
+	index = other.index;
+
+	other.data = nullptr;
+	other.size = 0;
+	other.index = 0;
+	return *this;
+}
+
 
 void Stapel::push(int value)
 {

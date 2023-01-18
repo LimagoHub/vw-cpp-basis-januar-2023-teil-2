@@ -13,7 +13,7 @@ int main()
 
     delete[] feld;*/
 	
-    Stapel myStapel{20};
+    Stapel myStapel{10};
 
     for (int i = 0; i < 10; ++i)
     {
@@ -21,10 +21,10 @@ int main()
             myStapel.push(i);
     }
 
-    Stapel other;
-    other = myStapel;
+    Stapel pirat;
+	pirat = std::move(myStapel);
 
-	while( ! myStapel.is_empty())
-        std::cout << myStapel.pop() << std::endl;
+	while( ! pirat.is_empty())
+        std::cout << pirat.pop() << std::endl;
 }
 
