@@ -2,21 +2,20 @@
 //
 
 #include <iostream>
-#include "CalculatorImpl.h"
-#include "CalculatorLogger.h"
-#include "CalcualtorSecure.h"
+#include <memory>
+#include "CalculatorFactor.h"
 #include "Client.h"
 
 int main()
 {
-	double a = 10;
-	int x = static_cast<int>(a);
+	// double a = 10;
+	// int x = static_cast<int>(a);
+	CalculatorFactor::set_logger(false);
+	CalculatorFactor::set_secured(true);
+	std::unique_ptr<Calculator> calc = CalculatorFactor::createInstance();
 	
-	/*CalculatorImpl impl;
-	CalculatorLogger logger{ impl };
-	CalculatorSecure secure{ logger };
-	Client client{secure};
-	client.go();*/
+	Client client{std::move(calc)};
+	client.go();
 }
 
 

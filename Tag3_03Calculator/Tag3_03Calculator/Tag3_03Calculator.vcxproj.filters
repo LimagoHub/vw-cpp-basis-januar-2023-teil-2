@@ -30,6 +30,9 @@
     <ClCompile Include="CalcualtorSecure.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="CalculatorFactor.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calculator.h">
@@ -45,6 +48,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="CalcualtorSecure.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculatorFactor.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

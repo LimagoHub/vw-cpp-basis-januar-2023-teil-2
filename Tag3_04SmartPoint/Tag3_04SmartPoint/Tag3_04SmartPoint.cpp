@@ -10,6 +10,8 @@ struct Foo
 		std::cout << "Ctor Foo" << std::endl;
 	}
 
+	
+
 	virtual ~Foo()
 	{
 		std::cout << "Dtor Foo" << std::endl;
@@ -24,23 +26,46 @@ struct Foo
 };
 
 
-auto createFoo() -> std::unique_ptr<Foo>
-{
-	std::unique_ptr<Foo> result = std::make_unique<Foo>();
-	return result;
-}
 
-auto sink(std::unique_ptr<Foo> param) -> void
-{
-	param->bar();
-}
-
-
+std::weak_ptr<Foo> weak;
 int main()
 {
-	std::unique_ptr<Foo> myPtr = createFoo();
+	{
+		auto myPtr = std::make_shared<Foo>();
 
-	sink(std::move(myPtr));
+		weak = myPtr;
+		if (!weak.expired())
+			weak.lock()->bar();
+		else
+			std::cout << "expired" << std::endl;
+	}
+	std::cout << "Usecount=" << weak.lock().use_count() << std::endl;
+	
+	
+	if(! weak.expired())
+		weak.lock()->bar();
+	else
+		std::cout << "expired" << std::endl;
+	
+	if(! weak.expired())
+		weak.lock()->bar();
+	else
+		std::cout << "expired" << std::endl;
+
+	
+	std::shared_ptr<Foo> other;
+
+	if(other = weak.lock())
+	{
+		std::cout << "Erfolg" << std::endl;
+		std::cout << other.use_count() << std::endl;
+	} else
+	{
+		std::cout << "Misserfolg" << std::endl;
+		std::cout << other.use_count() << std::endl;
+	}
+
+	
 	
 }
 

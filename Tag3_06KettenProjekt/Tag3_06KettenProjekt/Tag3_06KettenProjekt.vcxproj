@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{859ba32a-38bb-47ca-90a3-cc6b84ec6dbc}</ProjectGuid>
-    <RootNamespace>Tag303Calculator</RootNamespace>
+    <ProjectGuid>{40041cad-e6f3-4c3c-ae96-f21545ad7616}</ProjectGuid>
+    <RootNamespace>Tag306KettenProjekt</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,20 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CalcualtorSecure.cpp" />
-    <ClCompile Include="CalculatorFactor.cpp" />
-    <ClCompile Include="CalculatorImpl.cpp" />
-    <ClCompile Include="CalculatorLogger.cpp" />
-    <ClCompile Include="Client.cpp" />
-    <ClCompile Include="Tag3_03Calculator.cpp" />
+    <ClCompile Include="Tag3_06KettenProjekt.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CalcualtorSecure.h" />
-    <ClInclude Include="Calculator.h" />
-    <ClInclude Include="CalculatorFactor.h" />
-    <ClInclude Include="CalculatorImpl.h" />
-    <ClInclude Include="CalculatorLogger.h" />
-    <ClInclude Include="Client.h" />
+    <ClInclude Include="Liste.h" />
+    <ClInclude Include="ListeImpl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

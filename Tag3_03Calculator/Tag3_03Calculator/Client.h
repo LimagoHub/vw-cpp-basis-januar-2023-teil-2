@@ -1,24 +1,25 @@
 #pragma once
 #include <iostream>
+#include <memory>
 #include "Calculator.h"
 
 
 class Client
 {
 private:
-	Calculator& calc;
+	std::unique_ptr<Calculator> calc;
 public:
 
 
-	Client(Calculator& calc)
-		: calc(calc)
+	Client(std::unique_ptr<Calculator> calc)
+		: calc(std::move(calc))
 	{
 	}
 
 	void go()
 	{
 		
-		std::cout << calc.add(3, 4) << std::endl;
+		std::cout << calc->add(3, 4) << std::endl;
 	}
 };
 
