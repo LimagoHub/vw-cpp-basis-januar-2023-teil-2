@@ -27,7 +27,7 @@ namespace vw {
 					start =neu;
 				} else
 				{
-					move_last();
+					this->move_last();
 					neu->vor = akt;
 					akt->nach = neu;
 				}
@@ -44,20 +44,37 @@ namespace vw {
 			}
 			auto update(T newValue) -> bool override
 			{
-				return false;
+				if(is_empty()) 	return false;
+
+				akt->data = newValue;
+
+				return true;
 			}
 			auto move_first() -> bool override
 			{
-				return false;
+				if (is_empty()) return false;
+
+				akt = start;
+
+				return true;
 			}
 			auto move_last() -> bool override {
-				return false;
+				if(is_empty()) return false;
+				while (move_next())
+				{
+					// NOP OK
+				}
+				return true;
 			}
 			auto move_next() -> bool override {
-				return false;
+				if(is_end_of_list()) return false;
+				akt = akt->nach;
+				return true;
 			}
 			auto move_previous() -> bool override {
-				return false;
+				if (is_begin_of_list()) return false;
+				akt = akt->vor.lock();
+				return true;
 			}
 			auto is_empty() -> bool override {
 				return akt.use_count() == 0;
@@ -68,7 +85,13 @@ namespace vw {
 			auto is_begin_of_list() -> bool override {
 				return is_empty() || akt->vor.expired();
 			}
-			
+
+
+			auto clear() -> void override
+			{
+				start.reset();
+				akt.reset();
+			}
 		};
 		
 		template<class T>

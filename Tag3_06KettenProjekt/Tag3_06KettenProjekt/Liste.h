@@ -19,14 +19,35 @@ namespace vw {
 			
 
 			virtual auto update(T newValue)->bool = 0;
-			
+
+			virtual auto clear() ->void// Defaultmethoden
+			{
+				while (remove());
+			}
 
 			// Navigation
 
-			virtual auto move_first()-> bool = 0;
+			virtual auto move_first() -> bool 
+			{
+				if (is_empty()) return false;
+
+				while (move_previous())
+				{
+					// NOP OK
+				}
+
+				return true;
+			}
 			
 
-			virtual auto move_last()-> bool = 0;
+			virtual auto move_last() -> bool  {
+				if (is_empty()) return false;
+				while (move_next())
+				{
+					// NOP OK
+				}
+				return true;
+			}
 			
 
 			virtual auto move_next()-> bool = 0;
