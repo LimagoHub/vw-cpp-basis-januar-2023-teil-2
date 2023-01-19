@@ -19,6 +19,12 @@
     <Filter Include="Headerdateien\vw\collections">
       <UniqueIdentifier>{75699efa-ccce-4e1a-89d2-4e795de61d35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\vw\tiere">
+      <UniqueIdentifier>{f4e1fcc6-d9d2-43f5-a3ca-a8d52a881243}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\vw\clients">
+      <UniqueIdentifier>{d64b0fd1-1a3e-49d4-9aff-3eb009823f0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tag3_06KettenProjekt.cpp">
@@ -30,7 +36,13 @@
       <Filter>Headerdateien\vw\collections</Filter>
     </ClInclude>
     <ClInclude Include="ListeImpl.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\vw\collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Schwein.h">
+      <Filter>Headerdateien\vw\tiere</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Headerdateien\vw\clients</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

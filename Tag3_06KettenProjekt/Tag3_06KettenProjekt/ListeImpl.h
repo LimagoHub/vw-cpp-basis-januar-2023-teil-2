@@ -35,7 +35,8 @@ namespace vw {
 			}
 			auto get() -> T override
 			{
-				return T{};
+				if(is_empty()) 	return T{};
+				return akt->data;
 			}
 			auto remove() -> bool override // Bitte noch nicht
 			{

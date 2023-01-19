@@ -142,8 +142,10 @@
     <ClCompile Include="Tag3_06KettenProjekt.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Client.h" />
     <ClInclude Include="Liste.h" />
     <ClInclude Include="ListeImpl.h" />
+    <ClInclude Include="Schwein.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
