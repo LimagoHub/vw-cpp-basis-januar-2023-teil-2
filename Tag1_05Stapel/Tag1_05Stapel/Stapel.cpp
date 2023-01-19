@@ -58,23 +58,29 @@ Stapel& Stapel::operator=(Stapel&& other)
 
 void Stapel::push(int value)
 {
-	if (is_full()) return;
-	data[index++] = value;
+	try {
+		if (is_full()) throw StapelException{ "Overflow" };
+		data[index++] = value;
+	}
+	catch(const std::exception &ex)
+	{
+		throw StapelException(ex);
+	}
 }
 
 int Stapel::pop()
 {
 	
-	if(is_empty()) return 0;
+	if(is_empty()) throw StapelException{ "Underflow" };
 	return data[--index];
 }
 
-bool Stapel::is_empty()
+bool Stapel::is_empty() const noexcept
 {
 	return index == 0;
 }
 
-bool Stapel::is_full()
+bool Stapel::is_full() const noexcept
 {
 	return index == size;
 }

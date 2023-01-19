@@ -1,5 +1,5 @@
 #pragma once
-
+#include "StapelException.h"
 /*
  * ACHTUNG Goldene Regel 
  *
@@ -8,6 +8,11 @@
  *
  * 
  */
+///
+///
+///
+///
+///
 class Stapel
 {
 private:
@@ -32,12 +37,21 @@ public:
 	
 	Stapel& operator = (Stapel&& other);
 
-	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="value"></param>
 	void push(int value); // Verhalten im Fehlerfall ist Teil der Schnittstelle
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
+	/// <exception cref="">Stapelexception</exception>
 	int pop(); // 0 wenn Stapel
 
-	bool is_empty();
-	bool is_full();
+	auto is_empty() const noexcept -> bool;
+	auto is_full() const noexcept -> bool;
 };
 
 

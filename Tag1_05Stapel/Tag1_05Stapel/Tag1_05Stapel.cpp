@@ -5,26 +5,36 @@
 
 #include "Stapel.h"
 
+void service_funktion()
+{
+	Stapel myStapel{ 10 };
+
+	for (int i = 0; i < 10; ++i)
+	{
+		if (!myStapel.is_full())
+			myStapel.push(i);
+	}
+
+
+	while (!myStapel.is_empty())
+		std::cout << myStapel.pop() << std::endl;
+
+	
+}
+
 int main()
 {
-   /* int value = 10;
-    int* feld = new int[value];
-
-
-    delete[] feld;*/
-	
-    Stapel myStapel{10};
-
-    for (int i = 0; i < 10; ++i)
+  
+    try {
+        service_funktion();
+    	
+    } catch (const StapelException &ex)
     {
-        if (! myStapel.is_full())
-            myStapel.push(i);
+        std::cout << ex.what() << std::endl;
     }
-
-    Stapel pirat;
-	pirat = std::move(myStapel);
-
-	while( ! pirat.is_empty())
-        std::cout << pirat.pop() << std::endl;
+	catch (const std::exception& ex)
+	{
+		std::cout << ex.what() << std::endl;
+	} 
 }
 
