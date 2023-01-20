@@ -18,8 +18,9 @@ namespace vw
 		public:
 			Company()
 			{
+				employees.reserve(100);
 			}
-
+			Company(const Company& other) = default;
 
 			auto add(std::shared_ptr<vw::employees::AbstractEmployee> employee) -> void
 			{
